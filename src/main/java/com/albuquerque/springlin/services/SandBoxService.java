@@ -1,18 +1,10 @@
 package com.albuquerque.springlin.services;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.albuquerque.springlin.handlers.ResponseHandler;
 import com.albuquerque.springlin.models.auth.LoginResponse;
 import com.albuquerque.springlin.models.auth.User;
 import com.albuquerque.springlin.models.getclient.GetClientRequest;
