@@ -11,8 +11,8 @@ import com.albuquerque.springlin.models.auth.LoginResponse;
 import com.albuquerque.springlin.models.auth.User;
 
 @SpringBootTest
-class SpringLinApplicationTests {
-
+public class AuthControllerValidator {
+	
 	@Autowired
 	AuthController authController;
 	
@@ -32,6 +32,5 @@ class SpringLinApplicationTests {
 		assertThat(response.getStatus()).isEqualTo("APPROVED");
 		assertThat(response.getToken()).isNotNull();
 	}
-
 
 }
