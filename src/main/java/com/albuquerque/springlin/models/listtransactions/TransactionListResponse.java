@@ -2,7 +2,7 @@ package com.albuquerque.springlin.models.listtransactions;
 
 import java.util.List;
 
-public class TransactionQueryResponse {
+public class TransactionListResponse {
 
 	private Integer per_page;
 	private Integer current_page;
@@ -12,10 +12,10 @@ public class TransactionQueryResponse {
 	private Integer to;
 	private List<TransactionQueryData> data;
 
-	public TransactionQueryResponse() {
+	public TransactionListResponse() {
 	}
 
-	public TransactionQueryResponse(Integer per_page, Integer current_page, String next_page_url, String prev_page_url,
+	public TransactionListResponse(Integer per_page, Integer current_page, String next_page_url, String prev_page_url,
 			Integer from, Integer to, List<TransactionQueryData> data) {
 		super();
 		this.per_page = per_page;

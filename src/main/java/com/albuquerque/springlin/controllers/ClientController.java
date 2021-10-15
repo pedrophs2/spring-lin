@@ -21,7 +21,26 @@ public class ClientController {
 	@PostMapping
 	public ResponseHandler getClient(@RequestBody GetClientRequest transaction) {
 		try {
-			GetClientResponse response = this.sandboxService.getClient(transaction);
+			GetClientResponse response = this.sandboxService.getClient(transaction, true);
+			
+			if(response.getCustomerInfo() == null)
+				return new ResponseHandler(400, "No clients found");
+			
+			return new ResponseHandler(200, "Client Found !", response);
+		} catch(Exception ex) {
+			ex.printStackTrace(System.out);
+			return new ResponseHandler(500, "Internal Server Error", ex.getMessage());
+		}
+	}
+	
+	@PostMapping("/noauth")
+	public ResponseHandler getClientNoAuth(@RequestBody GetClientRequest transaction) {
+		try {
+			GetClientResponse response = this.sandboxService.getClient(transaction, false);
+			
+			if(response.getCustomerInfo() == null)
+				return new ResponseHandler(400, "No clients found");
+			
 			return new ResponseHandler(200, "Client Found !", response);
 		} catch(Exception ex) {
 			ex.printStackTrace(System.out);

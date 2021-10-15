@@ -2,21 +2,21 @@ package com.albuquerque.springlin.models.getclient;
 
 public class GetClientResponse {
 
-	private Object customerInfo;
+	private CustomerInfo customerInfo;
 
 	public GetClientResponse() {
 	}
 
-	public GetClientResponse(Object customerInfo) {
+	public GetClientResponse(CustomerInfo customerInfo) {
 		super();
 		this.customerInfo = customerInfo;
 	}
 
-	public Object getCustomerInfo() {
+	public CustomerInfo getCustomerInfo() {
 		return customerInfo;
 	}
 
-	public void setCustomerInfo(Object customerInfo) {
+	public void setCustomerInfo(CustomerInfo customerInfo) {
 		this.customerInfo = customerInfo;
 	}
 

@@ -12,7 +12,7 @@ import com.albuquerque.springlin.models.getclient.GetClientResponse;
 import com.albuquerque.springlin.models.gettransaction.GetTransactionRequest;
 import com.albuquerque.springlin.models.gettransaction.GetTransactionResponse;
 import com.albuquerque.springlin.models.listtransactions.TransactionFilters;
-import com.albuquerque.springlin.models.listtransactions.TransactionQueryResponse;
+import com.albuquerque.springlin.models.listtransactions.TransactionListResponse;
 
 public class SandBoxService {
 
@@ -31,10 +31,10 @@ public class SandBoxService {
 		return response;
 	}
 
-	public TransactionQueryResponse getTransactionList(TransactionFilters filters) {
+	public TransactionListResponse getTransactionList(TransactionFilters filters, boolean auth) {
 		String uri = BASE_URL + "/transaction/list";
 
-		if (this.token == null)
+		if (this.token == null && !auth)
 			this.login(TEST_USER);
 
 		HttpHeaders headers = new HttpHeaders();
@@ -42,15 +42,15 @@ public class SandBoxService {
 		
 		HttpEntity<TransactionFilters> entity = new HttpEntity<>(filters, headers);
 
-		TransactionQueryResponse response = restTemplate.postForObject(uri, entity, TransactionQueryResponse.class);
+		TransactionListResponse response = restTemplate.postForObject(uri, entity, TransactionListResponse.class);
 
 		return response;
 	}
 
-	public GetClientResponse getClient(GetClientRequest transaction) {
+	public GetClientResponse getClient(GetClientRequest transaction, boolean auth) {
 		String uri = BASE_URL + "/client";
 
-		if (this.token == null)
+		if (this.token == null && !auth)
 			this.login(TEST_USER);
 
 		HttpHeaders headers = new HttpHeaders();
@@ -63,10 +63,10 @@ public class SandBoxService {
 		return response;
 	}
 	
-	public GetTransactionResponse getTransaction(GetTransactionRequest transaction) {
+	public GetTransactionResponse getTransaction(GetTransactionRequest transaction, boolean auth) {
 		String uri = BASE_URL + "/transaction";
 
-		if (this.token == null)
+		if (this.token == null && !auth)
 			this.login(TEST_USER);
 
 		HttpHeaders headers = new HttpHeaders();
