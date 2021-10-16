@@ -1,3 +1,6 @@
+## Heroku Hosting
+https://spring-lin.herokuapp.com/
+
 ## Auth Routes
 
 ### Route (**POST**): 
